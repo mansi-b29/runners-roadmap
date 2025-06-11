@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oxygen:wght@300;400;700&display=swap');
+
+@font-face {
+    font-family: "TitleFont";
+    src: url("/SF Theramin Gothic Bold Oblique.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SloganFont";
+    src: url("airbolt-airbolt-regular-400.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.Title {
+    color: rgb(138, 190, 138);
+    text-align: center;
+    margin: auto;
+    font-size: 70px;
+    font-family: "TitleFont";
+}
+
+.secondHeader {
+    color: black;
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+    font-family: "SloganFont";
+}
+
+.blurb {
+    text-align: center;
+    font-family: "Oxygen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 23px;
+    padding-top: 12px;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-bottom: 30px;
+}
+
+.bottom_blurb {
+    text-align: center;
+    font-family: "Oxygen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    position: fixed;
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.StandardButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.MenuBar {
+    position: relative;
+    padding-right: 10px;
+    padding-top: 15px;
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.MenuButton {
+    color: brown;
+    padding: 5px;
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 100px;
+    padding: 10px 20px;
+    border-radius: 14px;
+}
+
+.MenuDropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    cursor: pointer;
+    top: 100%;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+}
+
+.MenuDropdown a > button {
+  background-color: white;
+  color: brown;
+  text-align: center;
+  cursor: pointer;
+  width: 100px;
+  padding: 10px 20px;
+  white-space: nowrap;
+  border-radius: 14px;
+}
+
+.MenuDropdown a > button:hover {
+  background-color: #f0f0f0;
+}
+
+.MenuWrapper {
+   position: relative;
+  display: inline-block;
+}
+
+
+.dropdown {
+    display: inline-block;
+    padding: 10px;
+    margin: auto;
+    align-items: center;
+}
+
+.navigationButtons {
+    border-radius: 14px;
+    border: none;
+    background-color: rgb(180, 226, 180);
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #355834;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2)
+}
+
+.navigationButtons:hover {
+    background-color: #355834;
+    color: rgb(180, 226, 180);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.footer {
+    padding-bottom: 170px;
+}
+
+.bold {
+    font-weight: bold;
+}
