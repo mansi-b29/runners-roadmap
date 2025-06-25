@@ -3,6 +3,8 @@ import CalendarPage from "../components/CalendarPage";
 import {useDataContext} from "../DataContext";
 import axios from 'axios';
 import { GoogleGenAI } from "@google/genai";
+import StandardButtons from "../components/StandardButtons"
+
 
 export function Page2() {
 
@@ -125,9 +127,14 @@ export function Page2() {
 
     return (
         <>
-            <h1 className="Title"> Web App Title </h1>
-            <h2> Generated workout schedule </h2>
+            <h1 className="TitleBar"> Runner's Roadmap </h1>
             <CalendarPage events={events} />
+            <div className="StandardButtons"> 
+                <StandardButtons to="/page1">
+                    Change Entries
+                </StandardButtons> 
+            </div>
+            <p className="bottomMargin"> </p>
         </>
     );
 }

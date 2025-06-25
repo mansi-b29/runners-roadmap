@@ -24,6 +24,14 @@
     font-family: "TitleFont";
 }
 
+.TitleBar {
+    color: rgb(138, 190, 138);
+    font-size: 50px;
+    font-family: "TitleFont";
+    justify-content: center;
+    display: flex;
+}
+
 .secondHeader {
     color: black;
     text-align: center;
@@ -63,23 +71,29 @@
     font-size: 18px;
 }
 
-.MenuBar {
-    position: relative;
+.MenuBar {   
     padding-right: 10px;
     padding-top: 15px;
     font-size: 18px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: right;
 }
 
 .MenuButton {
-    color: brown;
+    color: black;
+    background-color: rgba(137, 196, 245, 0.614);
     padding: 5px;
     margin-left: 1rem;
     cursor: pointer;
-    width: 100px;
+    width: 130px;
     padding: 10px 20px;
-    border-radius: 14px;
+    border: none;
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.2);
+    font-family: "Oxygen", sans-serif;
+}
+
+.MenuButton:hover {
+    background-color: #f0f0f0;
 }
 
 .MenuDropdown {
@@ -95,14 +109,15 @@
 }
 
 .MenuDropdown a > button {
-  background-color: white;
-  color: brown;
+  background-color: rgba(137, 196, 245, 0.614);
+  color: black;
   text-align: center;
   cursor: pointer;
-  width: 100px;
+  width: 130px;
   padding: 10px 20px;
   white-space: nowrap;
-  border-radius: 14px;
+  border: none;
+  gap: 10px;
 }
 
 .MenuDropdown a > button:hover {
@@ -111,30 +126,34 @@
 
 .MenuWrapper {
    position: relative;
-  display: inline-block;
 }
 
 
 .dropdown {
+    position: relative;
     display: inline-block;
     padding: 10px;
     margin: auto;
     align-items: center;
 }
 
+
 .navigationButtons {
     border-radius: 14px;
     border: none;
-    background-color: rgb(180, 226, 180);
+    background-color: #355834;
     padding: 10px 20px;
     cursor: pointer;
-    color: #355834;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2)
+    color: rgb(180, 226, 180) ;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
 }
 
 .navigationButtons:hover {
-    background-color: #355834;
-    color: rgb(180, 226, 180);
+    background-color:rgb(180, 226, 180) ;
+    color: #355834;
 }
 
 .container {
@@ -142,7 +161,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    margin-top: 20px;
+
 }
 
 .logo {
@@ -150,10 +169,52 @@
     height: auto;
 }
 
-.footer {
-    padding-bottom: 170px;
-}
 
 .bold {
     font-weight: bold;
 }
+
+h2 {
+    font-family: "Oxygen", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.error {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    color: red;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* as a last resort */
+}
+
+.dropdownRow {
+    display: flex;
+  justify-content: center; /* centers the group horizontally */
+  gap: 20px;               /* spacing between dropdowns */
+  flex-wrap: nowrap; 
+  margin-bottom: 250px;
+}
+
+.raceDropdown {
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+
+.bottomMargin {
+    margin-bottom: 60px !important;
+}
+
+

@@ -33,7 +33,7 @@ interface Props {
 const CalendarPage = ({events}: Props) => {
     return (
         <div className="calendar">
-            <h2> My Calendar </h2>
+            <h2> Your generated workout schedule </h2>
             <Calendar className="calendarParts"
                 localizer={localizer} 
                 events={events}

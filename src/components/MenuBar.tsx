@@ -31,7 +31,7 @@ export function MenuBar() {
         </Link> 
         
         <Link to="/page1"> 
-            <button > Page 1 </button>
+            <button > Create Plan </button>
         </Link> 
         </div>
         )}

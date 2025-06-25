@@ -1,7 +1,7 @@
 import StandardButtons from "../components/StandardButtons"
 import Dropdown from "../components/Dropdown";
 import DropdownItem from "../components/DropdownItem";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 import { DataContext, useDataContext } from "../DataContext";
 import "../App.css"
 import { useNavigate } from "react-router-dom";
@@ -13,12 +13,23 @@ export function Page1() {
     
     const { savedSelections, setSavedSelections } = useDataContext();
 
+    const [error, setError] = useState("");
+
+    const [raceType, setRaceType] = useState(false);
+
+
+
+  
+
+    
+
 
     /* State variables for each dropdown stats option */
     const [selectedPaceOption, setSelectedPaceOption] = useState("Select an option (training goal)");
     const [selectedDurationOption, setSelectedDurationOption] = useState("Select an option (availability)");
     const [selectedDifficultyOption, setSelectedDifficultyOption] = useState("Select an option (duration)");
     const [selectedTypeOption, setSelectedTypeOption] = useState("Select an option (fitness level)");
+    const [selectedRaceOption, setSelectedRaceOption] = useState("Select an option (race distance)");
 
 
     /* Populating the dropdown options */
@@ -31,34 +42,70 @@ export function Page1() {
         "Beginner - completely new to running/rarely runs", 
         "Intermediate - runs multiple times a week", 
         "Advanced - runs regularly and/or has experience racing/running competitively"]; //what is their current fitness level
-    
+    const race_items = ["100m sprint", "200m sprint", "400m sprint", "1 mile", "5K (3.1 miles)", "10K (6.2 miles)", "Half marathon (13.1 miles)", "Marathon (26.2 miles)"];
 
     /* Storing the most current states in an array of objects */
     const handleSave = () => {
-        setSavedSelections([ selectedPaceOption, selectedDurationOption, selectedDifficultyOption, selectedTypeOption ]);
+        setSavedSelections([ selectedPaceOption, selectedDurationOption, selectedDifficultyOption, selectedTypeOption, selectedRaceOption ]);
+        if (
+            selectedPaceOption === "Select an option (training goal)" ||
+            selectedDurationOption === "Select an option (availability)" ||
+            selectedDifficultyOption === "Select an option (duration)" ||
+            selectedTypeOption === "Select an option (fitness level)" 
+            
+        ) {
+            setError("Please make a selection for all dropdowns before continuing");
+            return;
+        } else if (raceType == true && selectedPaceOption === "Select an option (training goal)" ||
+            selectedDurationOption === "Select an option (availability)" ||
+            selectedDifficultyOption === "Select an option (duration)" ||
+            selectedTypeOption === "Select an option (fitness level)" ) 
+        {
+
+            setError("Please make a selection for all dropdowns before continuing");
+            return;
+        }
+        
+        setError("");
+        
         navigate("/page2");
     }
+
+    useEffect(() => {
+        if (selectedPaceOption === "Training for a race") {
+            setRaceType(true);
+        } else {
+            setRaceType(false);
+        }
+    })
+
+
 
     
 
     return (
         <>
-            <h1 className="Title"> Web App Title </h1>
+            <div className="TitleBar"> Runner's Roadmap </div>
             <h2> What are you looking for in your workout schedule? </h2>
             <div className="StandardButtons"> 
                 <StandardButtons to="/">
                     Go Back
                 </StandardButtons> 
 
-                <button onClick={() => handleSave()}>
+                <button className="navigationButtons" onClick={() => handleSave()}>
                     Submit entries
                 </button>
             </div>
 
+            <div className="dropdownRow">
+
             <div className="dropdown"> 
                 <Dropdown buttonText={selectedPaceOption} content={<>
                 {
-                    pace_items.map(item => <DropdownItem key={item} onClick={() => setSelectedPaceOption(item)}>{`${item}`}</DropdownItem>)
+                    pace_items.map(item => <DropdownItem key={item} onClick={() => {
+                        setSelectedPaceOption(item);
+                    }}>{`${item}`}</DropdownItem>)
+
                 }
                 </>}/>
              </div> 
@@ -85,7 +132,30 @@ export function Page1() {
                     type_items.map(item => <DropdownItem key={item} onClick={() => setSelectedTypeOption(item)}>{`${item}`}</DropdownItem>)
                 }
                 </>}/>
-             </div> 
+             </div>
+
+            
+            </div>
+
+
+
+
+             <div>
+                {raceType && (
+                <div className="raceDropdown"> 
+                <Dropdown buttonText={selectedRaceOption} content={<>
+                {
+                    race_items.map(item => <DropdownItem key={item} onClick={() => setSelectedRaceOption(item)}>{`${item}`}</DropdownItem>)
+                }
+                </>}/>
+             </div> )}
+
+             </div>
+             
+
+
+
+             {error && <p className="error"> {error} </p>}
 
              
         </>

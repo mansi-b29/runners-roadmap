@@ -1,6 +1,7 @@
 .calendar {
     height: 100vh;
     padding: 1rem;
+    margin-bottom: 150px;
 }
 
 .calendarParts {
